@@ -2,13 +2,30 @@
 <html>
 <head>
     <title>Sellema ABI - Produse Germania - Racari de jos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #content {
+            height: 90vh;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'https://www.sellema.olx.ro',
+                dataType: 'html',
+                success: function(data) {
+                    $('#content').html(data);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div style="height: 10vh;">
         <img src="logo.jpg" alt="Logo" style="max-height: 10vh; width: auto;">
     </div>
-    <div style="height: 90vh;">
-        <iframe src="https://sellema.olx.ro/" style="width: 100%; height: 100%; border: none;"></iframe>
-    </div>
+    <div id="content"></div>
 </body>
 </html>
+
